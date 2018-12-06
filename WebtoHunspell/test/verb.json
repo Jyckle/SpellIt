@@ -1,0 +1,34 @@
+{
+  "paradigm_name" : "Verb", 
+  "slots" : [
+  "root",
+  "Present",
+  "Past",
+  "Participle"],
+  "words" : [
+  {
+   "root" : "walk",
+   "Present" : "walks",
+   "Past" : "walked",
+   "Participle" : "walking"
+  },
+  {
+   "root" : "jump",
+   "Present" : "jumps",
+   "Past" : "jumped",
+   "Participle" : "jumping"
+  },
+  {
+   "root" : "buzz",
+   "Present" : "unbuzz",
+   "Past" : "buzzed",
+   "Participle" : "buzzing"   
+  },
+  {
+   "root" : "fly",
+   "Present" : "flies",
+   "Past" : "flown",
+   "Participle" : "flew"
+  }
+  ]
+}

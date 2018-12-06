@@ -1,0 +1,13 @@
+<h1>{{ 'Language List' | translate }}</h1>
+
+<ul>
+  <li *ngFor="let language of languages$ ">
+    <a routerLink="/language/{{language}}">{{ language }}</a>
+  </li>
+  <li>
+    <a routerLink="/language-add">
+    	<i class="material-icons">add_circle_outline</i>
+    	{{ 'Add a New Language' | translate }}
+	</a>
+  </li>
+</ul>

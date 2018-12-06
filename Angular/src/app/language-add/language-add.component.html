@@ -1,0 +1,9 @@
+<button (click)="goBack()" class="button" title="Go Back">
+	<i class="material-icons">arrow_back</i>
+</button>
+
+<h1> {{ 'Add a New Language' | translate }} </h1>
+<input class ="input-text" [(ngModel)]="languageName" placeholder="{{ 'Language Name' | translate }}">
+<a routerLink=".." (click)="addLanguage()" title="{{ 'Add a New Language' | translate }} '{{languageName}}'">
+	<i class="material-icons">add_circle_outline</i>
+</a>
