@@ -26,3 +26,5 @@
 
 #types of code to ignore
 *.pyc
+
+*nohup.out
