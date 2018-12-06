@@ -123,7 +123,8 @@ class GetAffixFile(Resource):
         affix_dir = "/root/WebtoHunspell/affix-files"
         WEB_TO_HUNSPELL_PATH = '/root/WebtoHunspell'
         API_PATH = '/root/FlaskProj'
-        [os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir) if jfile.endswith(".*")]
+        [os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir)]
+        [os.remove(os.path.join(API_PATH,ofile)) for ofile in os.listdir(API_PATH) if ofile.endswith(".aff") or ofile.endswith(".dic")]
         user.get_user_data_by_language()
 
         call_list = ["runghc", WEB_TO_HUNSPELL_PATH+"/WebtoHunspell.hs", WEB_TO_HUNSPELL_PATH+ "/affix-files/"]
