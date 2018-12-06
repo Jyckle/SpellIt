@@ -120,10 +120,10 @@ class GetParadigmSlots(Resource):
 class GetAffixFile(Resource):
 
     def post(self):
-    affix_dir = "/root/WebtoHunspell/affix-files"
-    WEB_TO_HUNSPELL_PATH = 'root/WebtoHunspell'
-    API_PATH = '/root/FlaskProj'
-    [os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir) if jfile.endswith(".json")]
+        affix_dir = "/root/WebtoHunspell/affix-files"
+        WEB_TO_HUNSPELL_PATH = '/root/WebtoHunspell'
+        API_PATH = '/root/FlaskProj'
+        [os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir) if jfile.endswith(".*")]
         user.get_user_data_by_language()
 
         call_list = ["runghc", WEB_TO_HUNSPELL_PATH+"/WebtoHunspell.hs", WEB_TO_HUNSPELL_PATH+ "/affix-files/"]
@@ -133,7 +133,6 @@ class GetAffixFile(Resource):
             af = affix_file.read()
 
         with open(API_PATH + '/out.dic', 'r') as dic_file:
-
             dic = dic_file.read()
 
         return {'affix_file': af, 'dic_file': dic}
