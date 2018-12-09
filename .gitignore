@@ -24,3 +24,7 @@
 !/Testing/testScripts/.gitkeep
 .vscode
 
+#types of code to ignore
+*.pyc
+
+*nohup.out

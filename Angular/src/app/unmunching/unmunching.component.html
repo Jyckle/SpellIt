@@ -9,6 +9,12 @@
 <h1> Unmunching </h1>
 
 <div class="flex-container">
+  <div class="form-group">
+    <label for="file">Choose File</label>
+    <input type="file"
+           id="file"
+           (change)="handleFileInput($event.target.files)">
+  </div>
   <div class="top-item">
     <button (click)="uploadWordList()" class="button" id="upload" title="Upload Word List">
       <i class="material-icons">cloud_upload</i>
@@ -52,4 +58,7 @@
       </button>
     </div>
   </div>
+
+
 </div>
+
