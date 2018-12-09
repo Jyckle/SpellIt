@@ -33,6 +33,10 @@
           <mat-icon>{{ isCurrentLanguage('it') ? 'check' : '' }}</mat-icon>
           <span>Italiano (it)</span>
         </button>
+        <button mat-menu-item (click)="changeLanguageTo('yo')">
+          <mat-icon>{{ isCurrentLanguage('it') ? 'check' : '' }}</mat-icon>
+          <span>Yoruba (yo)</span>
+        </button>
       </mat-menu>
     </li>
   </ul>

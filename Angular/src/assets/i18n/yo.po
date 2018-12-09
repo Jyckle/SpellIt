@@ -1,0 +1,37 @@
+# Translation File
+msgid ""
+msgstr ""
+
+
+msgid "Akojopo Èdè"
+msgstr ""
+
+msgid "Fi ede titun kun"
+msgstr ""
+
+msgid "Órúkọ Èdè"
+msgstr ""
+
+msgid "Àtòkọ Àpẹẹrẹ"
+msgstr ""
+
+msgid "Fi ÌÍánà titun kun"
+msgstr ""
+
+msgid "Órúkọ ÌÍánà"
+msgstr ""
+
+msgid "Akojọ Awọn ọrọ"
+msgstr ""
+
+msgid "Ibẹrẹ ọrọ"
+msgstr ""
+
+msgid "Awọn fọọmu Ọrọ"
+msgstr ""
+
+msgid "Awọn fọọmu ÌÍánà"
+msgstr ""
+
+msgid "Fi Ibẹrẹ ọrọ titun kun"
+msgstr ""
