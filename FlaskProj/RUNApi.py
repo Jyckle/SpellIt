@@ -120,20 +120,49 @@ class GetParadigmSlots(Resource):
 class GetAffixFile(Resource):
 
     def post(self):
+    affix_dir = "/root/WebtoHunspell/affix-files"
+    WEB_TO_HUNSPELL_PATH = 'root/WebtoHunspell'
+    API_PATH = '/root/FlaskProj'
+    [os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir) if jfile.endswith(".json")]
         user.get_user_data_by_language()
 
-        call_list = ["runghc", "/root/WebtoHunspell/WebtoHunspell.hs", "/root/WebtoHunspell/affix-files/"]
+        call_list = ["runghc", WEB_TO_HUNSPELL_PATH+"/WebtoHunspell.hs", WEB_TO_HUNSPELL_PATH+ "/affix-files/"]
         call(call_list)
 
-        with open('/root/FlaskProj/out.aff', 'r') as affix_file:
+        with open(API_PATH + '/out.aff', 'r') as affix_file:
             af = affix_file.read()
 
-        with open('/root/FlaskProj/out.dic', 'r') as dic_file:
+        with open(API_PATH + '/out.dic', 'r') as dic_file:
+
             dic = dic_file.read()
 
         return {'affix_file': af, 'dic_file': dic}
 
+class DeleteWord(Resource):
 
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        root_word = request_data['root_word']
+        user.delete_word(root_word)
+
+class DeleteParadigm(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        paradigm = request_data['paradigm_name']
+        user.delete_paradigm(paradigm)
+
+class DeleteLanguage(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        lang_name = request_data['language_name']
+        user.delete_language(lang_name)
+
+
+api.add_resource(DeleteLanguage, '/delete-language')
+api.add_resource(DeleteWord, '/delete-paradigm-word')
+api.add_resource(DeleteParadigm, '/delete-paradigm')
 
 api.add_resource(GetAffixFile, '/get-affix')
 api.add_resource(GetParadigmSlots, '/paradigm-slots')

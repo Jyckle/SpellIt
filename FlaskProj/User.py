@@ -43,7 +43,6 @@ class User():
                 self.set_user(username)
         else:
             return {'Error': 'User not found'}
-
     ################################################################    GETTERS     ############################################################
 
 
@@ -116,7 +115,7 @@ class User():
             paradigm_data['slots'] = self.get_user_paradigm_slots_aff_helper(paradigm)
             # response_obj.append(paradigm_data)
 
-            with open('/root/WebtoHunspell/affix-files/'+paradigm+'.json', 'w') as outfile:
+            with open('/root/WebtoHunspell/affix-files/'+paradigm+'.json', 'w+') as outfile:
                 json.dump(paradigm_data, outfile)
 
     def mapper(self, root, forms, skeleton):
@@ -167,6 +166,22 @@ class User():
     def save_data(self):
         self.couch.store_data(self.username, self.user_data)
 
+###################################################     DELETE FUNCTIONS    ##############################
+
+    def delete_word(self, root_word):
+        del self.user_data[self.lang_name][self.paradigm_name][self.word][root_word]
+        self.save_data()
+        return True
+
+    def delete_paradigm(self, paradigm_name):
+        del self.user_data[self.lang_name][paradigm_name]
+        self.save_data()
+        return True
+
+    def delete_language(self, lang):
+        del self.user_data[lang]
+        self.save_data()
+        return True
 
 # user = User()
 # user.validate_user('admin', 'admin')
