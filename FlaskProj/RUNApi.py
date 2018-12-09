@@ -167,7 +167,8 @@ class UnmunchWordList(Resource):
     def post(self):
         request_data = json.loads(request.data.decode())
         GetAffixFile()
-        user.unmunch_word_list(request_data['words'])
+        resp_obj = user.unmunch_word_list(request_data['words'])
+        return resp_obj
 
 
 
