@@ -106,4 +106,14 @@ export class DataService {
     });
   }
 
+
+  postFile(fileToUpload: File){
+   
+
+    // return this.httpClient
+    //   .post(endpoint, formData, { headers: yourHeadersConfig })
+    //   .map(() => { return true; })
+    //   .catch((e) => this.handleError(e));
+  }
+
 }
