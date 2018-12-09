@@ -183,6 +183,16 @@ class User():
         self.save_data()
         return True
 
+##################################################    UNMUNCH FUNCTIONS     #############################
+
+    def unmunch_word_list(self, words):
+        muncher = Muncher()
+        unmunched_data = muncher.unmunch(words)
+        return unmunched_data
+
+
+
+
 # user = User()
 # user.validate_user('admin', 'admin')
 # user.get_user_paradigms('English')

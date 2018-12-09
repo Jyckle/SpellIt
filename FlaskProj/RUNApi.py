@@ -160,6 +160,19 @@ class DeleteLanguage(Resource):
         user.delete_language(lang_name)
 
 
+#   Expected request object -> {words:[run,runs,running,happy,happier,happiest,ran,cookie,cokies,cookies,...,turkey]}
+#   Response Object -> {candidate_words:[{root:run,slots:[runs,running,ran],score:3},{root:happy,slots:[happier,happiest],score:2}]}
+class UnmunchWordList(Resource):
+
+    def post(self):
+        request_data = json.loads(request.data.decode())
+        GetAffixFile()
+        user.unmunch_word_list(request_data['words'])
+
+
+
+api.add_resource(UnmunchWordList, '/unmunch-word-list')
+
 api.add_resource(DeleteLanguage, '/delete-language')
 api.add_resource(DeleteWord, '/delete-paradigm-word')
 api.add_resource(DeleteParadigm, '/delete-paradigm')
