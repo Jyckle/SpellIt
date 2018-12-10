@@ -3,35 +3,35 @@ msgid ""
 msgstr ""
 
 
-msgid "Akojopo Èdè"
-msgstr ""
+msgid "Language List"
+msgstr "Akojopo Èdè"
 
-msgid "Fi ede titun kun"
-msgstr ""
+msgid "Add a New Language"
+msgstr "Fi ede titun kun"
 
-msgid "Órúkọ Èdè"
-msgstr ""
+msgid "Language Name"
+msgstr "Órúkọ Èdè"
 
-msgid "Àtòkọ Àpẹẹrẹ"
-msgstr ""
+msgid "Paradigm List"
+msgstr "Àtòkọ Àpẹẹrẹ"
 
-msgid "Fi ÌÍánà titun kun"
-msgstr ""
+msgid "Add a New Paradigm"
+msgstr "Fi ÌÍánà titun kun"
 
-msgid "Órúkọ ÌÍánà"
-msgstr ""
+msgid "Paradigm Name"
+msgstr "Órúkọ ÌÍánà"
 
-msgid "Akojọ Awọn ọrọ"
-msgstr ""
+msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
+msgstr "Akojọ Awọn ọrọ"
 
-msgid "Ibẹrẹ ọrọ"
-msgstr ""
+msgid "Root Words"
+msgstr "Ibẹrẹ Awọn ọrọ"
 
-msgid "Awọn fọọmu Ọrọ"
-msgstr ""
+msgid "Word Forms"
+msgstr "Awọn fọọmu Ọrọ"
 
-msgid "Awọn fọọmu ÌÍánà"
-msgstr ""
+msgid "Paradigm Forms"
+msgstr "Awọn fọọmu ÌÍánà"
 
-msgid "Fi Ibẹrẹ ọrọ titun kun"
-msgstr ""
+msgid "Add a New Root"
+msgstr "Fi Ibẹrẹ ọrọ titun kun"
