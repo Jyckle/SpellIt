@@ -284,8 +284,10 @@ class Muncher():
             tempObj = {}
 
 
+
         myResult = {"candidate_words": newList}
 	print myResult
+
 
         return myResult
 

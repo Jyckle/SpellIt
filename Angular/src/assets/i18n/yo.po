@@ -1,0 +1,37 @@
+# Translation File
+msgid ""
+msgstr ""
+
+
+msgid "Language List"
+msgstr "Akojopo Èdè"
+
+msgid "Add a New Language"
+msgstr "Fi ede titun kun"
+
+msgid "Language Name"
+msgstr "Órúkọ Èdè"
+
+msgid "Paradigm List"
+msgstr "Àtòkọ Àpẹẹrẹ"
+
+msgid "Add a New Paradigm"
+msgstr "Fi ÌÍánà titun kun"
+
+msgid "Paradigm Name"
+msgstr "Órúkọ ÌÍánà"
+
+msgid "Slot list separated by commas e.g. slot1,slot2,slot3"
+msgstr "Akojọ Awọn ọrọ"
+
+msgid "Root Words"
+msgstr "Ibẹrẹ Awọn ọrọ"
+
+msgid "Word Forms"
+msgstr "Awọn fọọmu Ọrọ"
+
+msgid "Paradigm Forms"
+msgstr "Awọn fọọmu ÌÍánà"
+
+msgid "Add a New Root"
+msgstr "Fi Ibẹrẹ ọrọ titun kun"
