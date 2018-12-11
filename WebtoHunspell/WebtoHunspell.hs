@@ -248,34 +248,36 @@ presufcheck :: [(String,[[(String,String,String)]])] -> [(String,[[(String,Maybe
 presufcheck []          = []
 presufcheck ((a,xs):ys) = [(a,nesteddiff xs)] ++ (presufcheck ys)
     where
-    --Nested Function Definitions.--
-    --maybetriplet
-    maybetriplet :: (Maybe (String,String),String) -> Maybe (String,String,String)
-    maybetriplet (Just (a,b),c) = Just (a,b,c) 
-    --nesteddiff
-    nesteddiff :: [[(String,String,String)]] -> [[(String,Maybe (String,String,String))]]
-    nesteddiff []     = []
-    nesteddiff (x:xs) = [diff x] ++ (nesteddiff xs)
-    --diff
-    diff :: [(String,String,String)] -> [(String,Maybe (String,String,String))]
-    diff []           = [] 
-    diff ((x,y,z):xs) = if L.null (x L.\\ z)
-                            then [((x,maybetriplet (E.stripInfix x z , "0")))] ++ (diff xs)
-                            else [((x,Just ("",stripper (totuple z x),stripper (totuple x z))))] ++ (diff xs)
-                 where
-                     --Nested Function Defintions.--
-                     --stripper
-                     stripper :: (String,String) -> String
-                     stripper ([],[]) = []
-                     stripper (_,[]) = []
-                     stripper ([],_) = []
-                     stripper ((a:as),(b:bs)) = if a /= b
-                                                       then [a] ++ as
-                                                       else stripper (as,bs)   
-                     --totuple
-                     totuple :: String -> String -> (String,String)
-                     totuple a b = (a,b)
-                     -------------------------------
+        --Nested Function Definitions.--
+        --maybetriplet
+        maybetriplet :: (Maybe (String,String),String) -> Maybe (String,String,String)
+        maybetriplet (Just (a,b),c) = Just (a,b,c) 
+        --nesteddiff
+        nesteddiff :: [[(String,String,String)]] -> [[(String,Maybe (String,String,String))]]
+        nesteddiff []     = []
+        nesteddiff (x:xs) = [diff x] ++ (nesteddiff xs)
+        --diff
+        diff :: [(String,String,String)] -> [(String,Maybe (String,String,String))]  
+        diff []           = [] 
+        diff ((x,y,z):xs) = if L.null (x L.\\ z)
+                                then if L.isInfixOf x z == True
+                                    then [((x,maybetriplet (E.stripInfix x z , "0")))] ++ (diff xs)
+                                    else [((x,Just ("",stripper (totuple z x),stripper (totuple x z))))] ++ (diff xs) 
+                                else [((x,Just ("",stripper (totuple z x),stripper (totuple x z))))] ++ (diff xs)
+            where
+                --Nested Function Defintions.--
+                --stripper
+                stripper :: (String,String) -> String
+                stripper ([],[]) = []
+                stripper (_,[]) = []
+                stripper ([],_) = []
+                stripper ((a:as),(b:bs)) = if a /= b
+                                               then [a] ++ as
+                                               else stripper (as,bs)   
+                --totuple
+                totuple :: String -> String -> (String,String)
+                totuple a b = (a,b)
+                -------------------------------
 
 {----------------------------------------------------------}
 {----------------------------------------------------------------------}
