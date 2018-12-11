@@ -14,7 +14,7 @@ export class UnmunchingComponent implements OnInit {
   show$: Object
   showList: Boolean
   fileToUpload: File = null;
-  
+  wordsList: Object  
 
   constructor(
   	private data: DataService,
@@ -25,6 +25,7 @@ export class UnmunchingComponent implements OnInit {
     this.check$ = [];
     this.show$ = [];
     this.showList = false;
+    this.wordsList =[];
   }
 
   goBack(): void {
@@ -39,35 +40,31 @@ export class UnmunchingComponent implements OnInit {
    * this function send the WordList to the backend
    * and receive the processed data
    */
-  uploadWordList() {
-    this.unmunchedData$ = this.data.getUnmunch();
-    this.showList = true;
+  uploadWordList(files: FileList) {
+    this.fileToUpload = files.item(0);
+    const fileReader = new FileReader();
+    var _this = this;
+    fileReader.onload = function(e) {
+      var text = fileReader.result;
+      var wordsArray = text.split("\n");
+      console.log(wordsArray);
+      _this.data.getUnmunch(wordsArray).subscribe(
+        data =>
+        {
+          _this.unmunchedData$ = data["words"];
+          console.log(_this.unmunchedData$);
+          _this.showList = true;
+        }
+        );
+    }
+    fileReader.readAsText(this.fileToUpload, "UTF-8");
   }
 
   /**
-   * this function send the selected data to the backend 
-   */
-  addWords() {
-    
-  }
+  this function is to add the selected words to the paradigm
+  **/
+  addWords(){
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
   }
-
-  uploadFileToActivity() {
-    // this.data.postFile(this.fileToUpload).subscribe(data => {
-    //   // do something, if upload success
-    //   alert("File upload successful");
-    //   }, error => {
-    //     console.log(error);
-    //   });
-    const fileReader = new FileReader();
-    fileReader.onload = function(e) {
-    var text = fileReader.result;
-    }
-    fileReader.readAsText(this.fileToUpload, "UTF-8");
-    console.log(this.fileToUpload);
-  }
-
+  
 }
