@@ -51,7 +51,7 @@ export class UnmunchingComponent implements OnInit {
       _this.data.getUnmunch(wordsArray).subscribe(
         data =>
         {
-          _this.unmunchedData$ = data["words"];
+          _this.unmunchedData$ = data["candidate_words"];
           console.log(_this.unmunchedData$);
           _this.showList = true;
         }

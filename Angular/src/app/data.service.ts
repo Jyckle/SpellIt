@@ -51,7 +51,7 @@ export class DataService {
 
   getUnmunch(words_list: string[]){
     return this.http.post(`http://${this.baseUrl}:5000/unmunch-word-list`, {
-      words_list: words_list
+      words: words_list
     });
   }   
 

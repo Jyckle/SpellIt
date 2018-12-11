@@ -34,7 +34,7 @@ class Muncher():
 
             count = -1
 
-            for count, line in enumerate(open(aff, 'rU')):
+            for count, line in enumerate(open(self.aff, 'rU')):
                 pass
 
             count += 1
@@ -43,7 +43,7 @@ class Muncher():
 
             # print count
 
-            # wordList = r.readlines()
+            line = r.readlines()
 
             # print len(line)
 
@@ -260,8 +260,8 @@ class Muncher():
                     else:
 
                         print "*****" + str(fourth_row[s]) + str(all[j][:-len(fourth_row[s])] + third_row[s])
-
-            number.append(t)
+            temp = list(set(temp))
+            number.append(len(temp))
 
             forms.append(temp)
 
@@ -284,10 +284,8 @@ class Muncher():
             tempObj = {}
 
 
-        # write it down：
-
         myResult = {"candidate_words": newList}
-
+	print myResult
 
         return myResult
 

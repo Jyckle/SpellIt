@@ -163,10 +163,20 @@ class DeleteLanguage(Resource):
 #   Expected request object -> {words:[run,runs,running,happy,happier,happiest,ran,cookie,cokies,cookies,...,turkey]}
 #   Response Object -> {candidate_words:[{root:run,slots:[runs,running,ran],score:3},{root:happy,slots:[happier,happiest],score:2}]}
 class UnmunchWordList(Resource):
-
     def post(self):
         request_data = json.loads(request.data.decode())
-        GetAffixFile()
+        #start of affix file creation
+        affix_dir = "/root/WebtoHunspell/affix-files"
+        WEB_TO_HUNSPELL_PATH = '/root/WebtoHunspell'
+        API_PATH = '/root/FlaskProj'
+
+	[os.remove(os.path.join(affix_dir,jfile)) for jfile in os.listdir(affix_dir)]	
+	[os.remove(os.path.join(API_PATH,ofile)) for ofile in os.listdir(API_PATH) if ofile.endswith(".aff") or ofile.endswith(".dic")]
+        user.get_user_data_by_language()
+
+        call_list = ["runghc", WEB_TO_HUNSPELL_PATH+"/WebtoHunspell.hs", WEB_TO_HUNSPELL_PATH+ "/affix-files/"]
+        call(call_list)
+
         resp_obj = user.unmunch_word_list(request_data['words'])
         return resp_obj
 
