@@ -14,9 +14,7 @@ class Muncher():
 
     def __init__(self):
         self.affix = "/root/FlaskProj/out.aff"
-        self.aff = "D:\\principle of software engineering\\similarity\\example.txt"
-        self.input = "D:\\principle of software engineering\\similarity\\input.txt"
-        self.out = "D:\\principle of software engineering\\similarity\\out.txt"
+	self.aff = "/root/FlaskProj/temp.aff"
 
     def unmunch(self, wordList):
 
@@ -26,11 +24,11 @@ class Muncher():
 
         filtered_lines = lines[1:]
 
-        with open(self.affix, "w") as w:
+        with open(self.aff, "w") as w:
 
             w.write(''.join(filtered_lines))
 
-        with open(self.affix, "r") as r:
+        with open(self.aff, "r") as r:
 
             # count the number of lines
 
