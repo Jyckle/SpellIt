@@ -49,23 +49,11 @@ export class DataService {
     });
   }
 
-  getUnmunch(){
-
-    var ret = [
-      { root: "happy",
-        slots : ["happier", "happiest"],
-        score : 80
-      },
-      {
-        root: "happie",
-        slots : ["happier", "happiest"],
-        score : 50
-      }
-    ]
-
-    return ret
-    
-  }
+  getUnmunch(words_list: string[]){
+    return this.http.post(`http://${this.baseUrl}:5000/unmunch-word-list`, {
+      words_list: words_list
+    });
+  }   
 
   addLanguage(language_name: string) {
     return this.http.post(`http://${this.baseUrl}:5000/add-language`, {
@@ -104,16 +92,6 @@ export class DataService {
     return this.http.post(`http://${this.baseUrl}:5000/delete-language`, {
       language_name: language_name
     });
-  }
-
-
-  postFile(fileToUpload: File){
-   
-
-    // return this.httpClient
-    //   .post(endpoint, formData, { headers: yourHeadersConfig })
-    //   .map(() => { return true; })
-    //   .catch((e) => this.handleError(e));
   }
 
 }
